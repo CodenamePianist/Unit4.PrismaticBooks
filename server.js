@@ -2,9 +2,9 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
-app.use("/books", require("./api/books"));
-
 app.use(express.json());
+
+app.use("/books", require("./api/books"));
 
 app.use((req, res, next) => {
   next({ status: 404, message: "Endpoint not found." });
